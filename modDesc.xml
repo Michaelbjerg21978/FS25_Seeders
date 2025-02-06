@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="94">
     <author>Michaelbjerg21978</author>
-    <version>0.0.0.4</version>
+    <version>0.0.0.6</version>
 	
     <title>
         <en>Seeders Pack</en>
-		<de>Bredal Pakke</de>
+		<de>Sämaschine-Paket</de>
 		<da>Såmaskine Pakke</da>
     </title>
     <description>
         <en>
-            <![CDATA[Bredal pack 
+            <![CDATA[Seeders pack 
 ]]>
         </en>
         <de>
-            <![CDATA[Bredal pakke
+            <![CDATA[Sämaschine-Paket
 ]]>
         </de>
 		<da>
