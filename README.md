@@ -9,3 +9,6 @@ This is a mod for fs 25, where fertilizer tanks can be shifted to seeds.
 
 # Added Seeders:
 - Horsch Maestro2450SV.
+
+- 
+![icon](https://github.com/user-attachments/assets/8b3975ba-42dd-4d73-815c-096ac346fcda)
