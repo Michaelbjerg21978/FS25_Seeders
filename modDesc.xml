@@ -4,13 +4,13 @@
     <version>0.0.0.4</version>
 	
     <title>
-        <en>Seeders Pakke</en>
+        <en>Seeders Pack</en>
 		<de>Bredal Pakke</de>
 		<da>Såmaskine Pakke</da>
     </title>
     <description>
         <en>
-            <![CDATA[Bredal pakke 
+            <![CDATA[Bredal pack 
 ]]>
         </en>
         <de>
@@ -18,30 +18,17 @@
 ]]>
         </de>
 		<da>
-            <![CDATA[Bredal pakke.
-Med spredermarkeringer.			
+            <![CDATA[Såmaskine pakke.
+Med gødningsvalg.			
 ]]>
         </da>
     </description>
     <iconFilename>icon.png</iconFilename>
     <multiplayer supported="true" />
 
-	<!--<l10n>
-		<text name="configuration_valueNewCare"> <en>TerraDæk</en> <de>TerraDæk</de> <da>TerraDæk</da></text>
-		<text name="configuration_numre"> <en>Nummer Valg</en> <de>Nummer Valg</de> <da>Nummer Valg</da></text>
-		<text name="configuration_No_Number"><en>Ingen</en><de>Ingen</de><da>Ingen</da></text>
-		<text name="configuration_1"><en>1</en><de>1</de><da>1</da></text>
-		<text name="configuration_2"><en>2</en><de>2</de><da>2</da></text>
-		<text name="configuration_3"><en>3</en><de>3</de><da>3</da></text>
-		<text name="configuration_4"><en>4</en><de>4</de><da>4</da></text>
-		<text name="configuration_5"><en>5</en><de>5</de><da>5</da></text>
-		<text name="configuration_6"><en>6</en><de>6</de><da>6</da></text>
-		<text name="configuration_7"><en>7</en><de>7</de><da>7</da></text>
-		<text name="configuration_8"><en>8</en><de>8</de><da>8</da></text>
-		<text name="configuration_9"><en>9</en><de>9</de><da>9</da></text>
-		<text name="configuration_10"><en>10</en><de>10</de><da>10</da></text>
-		<text name="function_bredalK"><en>Gødning og Kalk spreder med synlig spredeBredde. LMB+ned/op: Gødning. LMB+venstre/højre: Kalk</en><de>Gødning og Kalk spreder med synlig spredeBredde. LMB+ned/op: Gødning. LMB+venstre/højre: Kalk</de><da>Gødning og Kalk spreder med synlig spredeBredde. LMB+ned/op: Gødning. LMB+venstre/højre: Kalk</da></text>
-	</l10n>-->
+	<l10n>
+        <text name="configuration_fertilizerTank"><en>FertilizerTank</en><de>Hauptfarbe</de><da>GødningsTank</da></text>
+    </l10n>
 
     <storeItems>
 		<storeItem xmlFilename="xml/maestro2450SV.xml"/>  
