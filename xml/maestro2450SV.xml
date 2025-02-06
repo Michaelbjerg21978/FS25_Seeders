@@ -47,12 +47,12 @@
         <mapHotspot type="TOOL_TRAILED"/>
     </base>
 
-	<configurationSets title="GødningsTank">
-        <configurationSet name="Til" >
+	<configurationSets title="$l10n_configuration_fertilizerTank" isYesNoOption="true">
+        <configurationSet name="$l10n_configuration_valueYes" >
             <configuration name="fillVolume"   index="1" />
             <configuration name="fillUnit"     index="1" />
         </configurationSet>
-        <configurationSet name="Fra" >
+        <configurationSet name="$l10n_configuration_valueNo" >
             <configuration name="fillVolume"   index="2" />
             <configuration name="fillUnit"     index="2" />
         </configurationSet>
