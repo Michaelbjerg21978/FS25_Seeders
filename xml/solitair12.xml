@@ -1,0 +1,712 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="SowingMachineExtended" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>Solitair 12</name>
+        <specs>
+            <neededPower>180</neededPower>
+            <workingWidth>12</workingWidth>
+        </specs>
+        <functions>
+            <function>$l10n_function_sowingMachine</function>
+			<function>$l10n_function_sowingMachineExtended</function>
+        </functions>
+        <image>$data/vehicles/lemken/solitair12/store_solitair12.png</image>
+        <price>165000</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>LEMKEN</brand>
+        <category>seeders</category>
+        <shopTranslationOffset>0 -0.007 0</shopTranslationOffset>
+        <shopRotationOffset>0.064 0 0</shopRotationOffset>
+        <vertexBufferMemoryUsage>2640384</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>1212928</indexBufferMemoryUsage>
+        <textureMemoryUsage>1245184</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_sowingMachine</typeDesc>
+        <filename>i3d/solitair12.i3d</filename>
+        <size width="3" length="6.8" height="3.85" lengthOffset="0.15"/>
+        <speedLimit value="15"/>
+        <components>
+            <component centerOfMass="0 0.7 0" solverIterationCount="20" mass="4070"/>
+            <component centerOfMass="0 0 0" solverIterationCount="10" mass="700"/>
+            <joint component1="1" component2="2" node="backPartJointBack" rotLimit="0 0 0" transLimit="0 0 0"/>
+        </components>
+        <schemaOverlay attacherJointPosition="0 0" name="IMPLEMENT"/>
+        <sounds volumeFactor="1.6"/>
+        <mapHotspot type="TOOL_TRAILED"/>
+    </base>
+
+    <wheels>
+        <wheelConfigurations tireCategories="TRAILER">
+            <tireCombination brand="TRELLEBORG" names="TwinRadial"/>
+            <tireCombination brand="MICHELIN" names="cargoXBib"/>
+            <tireCombination brand="VREDESTEIN" names="flotationTrac"/>
+            <wheelConfiguration name="$l10n_configuration_valueDefault" price="0" saveId="DEFAULT">
+                <wheels>
+                    <wheel dimensions="560_60R22_5" isLeft="true" hasTireTracks="true" hasParticles="true">
+                        <physics rotSpeed="0" restLoad="2.1" repr="wheelLeft"           forcePointRatio="0.3" initialCompression="35" suspTravel="0.12" spring="44" damper="20" yOffset="0.02"/>
+                        <wheelChock parkingNode="wheelChockFrontLeft"/>
+                        <wheelChock parkingNode="wheelChockFrontRight" isInverted="true"/>
+                    </wheel>
+                    <wheel dimensions="560_60R22_5" isLeft="false" hasTireTracks="true" hasParticles="true">
+                        <physics rotSpeed="0" restLoad="2.1" repr="wheelRight"          forcePointRatio="0.3" initialCompression="35" suspTravel="0.12" spring="44" damper="20" yOffset="0.02"/>
+                    </wheel>
+                    <wheel>
+                        <physics rotSpeed="0" restLoad="0.2" repr="wheelLeftBack"       forcePointRatio="0.2" radius="0.25" width="0.3" mass="0.066" initialCompression="20" suspTravel="0.06" spring="10" damper="10" rotationDamping="0.002" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics rotSpeed="0" restLoad="0.2" repr="wheelRightBack"      forcePointRatio="0.2" radius="0.25" width="0.3" mass="0.066" initialCompression="20" suspTravel="0.06" spring="10" damper="10" rotationDamping="0.002" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics rotSpeed="0" restLoad="0.2" repr="wheelOuterLeftBack"  forcePointRatio="0.2" radius="0.25" width="0.3" mass="0.066" initialCompression="20" suspTravel="0.06" spring="10" damper="10" rotationDamping="0.002" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                    <wheel>
+                        <physics rotSpeed="0" restLoad="0.2" repr="wheelOuterRightBack" forcePointRatio="0.2" radius="0.25" width="0.3" mass="0.066" initialCompression="20" suspTravel="0.06" spring="10" damper="10" rotationDamping="0.002" brakeFactor="0" isSynchronized="false"/>
+                    </wheel>
+                </wheels>
+            </wheelConfiguration>
+        </wheelConfigurations>
+
+        <rimMaterial materialTemplateName="LEMKEN_RED1" />
+        <hubMaterial materialTemplateName="LEMKEN_BLUE1" />
+
+        <hubs>
+            <hub linkNode="wheelLeft"  filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="true"  scale="0.335 0.335 0.335" offset="0.008"/>
+            <hub linkNode="wheelRight" filename="$data/shared/wheels/hubs/hub_n10_5.xml" isLeft="false" scale="0.335 0.335 0.335" offset="0.008"/>
+        </hubs>
+    </wheels>
+
+    <speedRotatingParts>
+        <speedRotatingPart node="leftArmWheelsFront" shaderNode="leftArmFirstRowDiscs" radius="0.175" foldMinLimit="0" foldMaxLimit="0.03"/>
+        <speedRotatingPart node="leftArmWheelsBack" radius="0.167" foldMinLimit="0" foldMaxLimit="0.03"/>
+        <speedRotatingPart node="rightArmWheelsFront" radius="0.167" foldMinLimit="0" foldMaxLimit="0.03"/>
+        <speedRotatingPart node="rightArmWheelsBack" shaderNode="rightArmFirstRowDiscs" radius="0.175" foldMinLimit="0" foldMaxLimit="0.03"/>
+        <speedRotatingPart node="ridgeMarkerLeftDisc" radius="-0.167" groundReferenceNodeIndex="2" foldMinLimit="0" foldMaxLimit="0.01"/>
+        <speedRotatingPart node="ridgeMarkerRightDisc" radius="0.167" groundReferenceNodeIndex="3" foldMinLimit="0" foldMaxLimit="0.01"/>
+    </speedRotatingParts>
+
+    <attachable>
+        <inputAttacherJoints>
+            <inputAttacherJoint node="attacherJoint" jointType="trailer" attacherHeight="0.77">
+                <objectChange node="attacherJoint_vis" translationActive="0 0 0" translationInactive="0 0 0" />
+            </inputAttacherJoint>
+            <inputAttacherJoint node="attacherJointLow" jointType="trailerLow">
+                <objectChange node="attacherJoint_vis" translationActive="0 -0.15 0" translationInactive="0 0 0" />
+            </inputAttacherJoint>
+        </inputAttacherJoints>
+        <support animationName="moveSupport"/>
+        <brakeForce force="1.5"/>
+        <sounds>
+            <active file="$data/sounds/tools/cultivator/generalRattle_01.wav" innerRadius="10" outerRadius="50" volumeScale="4" isLocalSound="true" pitchScale="0.8">
+                <volume indoor="0.7" outdoor="0.9" >
+                    <modifier type="WHEEL_SUSPENSION" value="-0.06" modifiedValue="0.25"/>
+                    <modifier type="WHEEL_SUSPENSION" value="-0.04" modifiedValue="0.2"/>
+                    <modifier type="WHEEL_SUSPENSION" value="-0.02" modifiedValue="0.1"/>
+                    <modifier type="WHEEL_SUSPENSION" value="-0.01" modifiedValue="0.00"/>
+                    <modifier type="WHEEL_SUSPENSION" value="-0.00" modifiedValue="0.0"/>
+                    <modifier type="WHEEL_SUSPENSION" value="0.01" modifiedValue="0.00"/>
+                    <modifier type="WHEEL_SUSPENSION" value="0.02" modifiedValue="0.1"/>
+                    <modifier type="WHEEL_SUSPENSION" value="0.04" modifiedValue="0.2"/>
+                    <modifier type="WHEEL_SUSPENSION" value="0.06" modifiedValue="0.25"/>
+
+                    <modifier type="SPEED" value="0.0" modifiedValue="0.0"/>
+                    <modifier type="SPEED" value="2.0" modifiedValue="1.0"/>
+                    <modifier type="SPEED" value="40.0" modifiedValue="1.0"/>
+                </volume>
+                <lowpassCutoffFrequency indoor="250" outdoor="20000" />
+                <lowpassGain indoor="0.5" outdoor="1" />
+            </active>
+        </sounds>
+    </attachable>
+
+    <connectionHoses>
+        <hose inputAttacherJointIndices="1 2" type="electric" node="electricOut" length="1.2" diameter="0.01" straighteningFactor="2" adapterNode="electricOut_detachedAdapter">
+            <objectChange node="electricOut_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1 2" type="hydraulicIn"  node="hydraulicIn01"  length="1.2" diameter="0.02" straighteningFactor="2" adapterNode="hydraulicIn01_detachedAdapter">
+            <objectChange node="hydraulicIn01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1 2" type="hydraulicOut" node="hydraulicOut01" length="1.2" diameter="0.02" straighteningFactor="2" adapterNode="hydraulicOut01_detachedAdapter">
+            <objectChange node="hydraulicOut01_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1 2" type="hydraulicIn"  node="hydraulicIn02"  length="1.2" diameter="0.02" straighteningFactor="2" adapterNode="hydraulicIn02_detachedAdapter">
+            <objectChange node="hydraulicIn02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+        <hose inputAttacherJointIndices="1 2" type="hydraulicOut" node="hydraulicOut02" length="1.2" diameter="0.02" straighteningFactor="2" adapterNode="hydraulicOut02_detachedAdapter">
+            <objectChange node="hydraulicOut02_detached" visibilityActive="false" visibilityInactive="true"/>
+        </hose>
+    </connectionHoses>
+
+    <powerConsumer forceNode="solitair12_main_component1" maxForce="17" ptoRpm="470" neededMaxPtoPower="25"/>
+
+    <lights>
+        <sharedLight linkNode="yellowRound_03_1"           filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="yellowRound_03_2"           filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="yellowRound_03_3"           filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="yellowRound_03_4"           filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="yellowRound_03_5"           filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="yellowRound_03_6"           filename="$data/shared/assets/reflectors/lizard/yellowRound_02.xml" />
+        <sharedLight linkNode="frontLightCone_01_1"        filename="$data/shared/assets/lights/lizard/frontLight02.xml" />
+        <sharedLight linkNode="frontLightCone_01_2"        filename="$data/shared/assets/lights/lizard/frontLight02.xml" />
+        <sharedLight linkNode="redTriangle_02_1"           filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="redTriangle_02_2"           filename="$data/shared/assets/reflectors/lizard/redTriangle_01.xml" />
+        <sharedLight linkNode="rear2ChamberLight_03_left"  filename="$data/shared/assets/lights/lizard/rearLight03_left.xml" />
+        <sharedLight linkNode="rear2ChamberLight_03_right" filename="$data/shared/assets/lights/lizard/rearLight03_right.xml" />
+
+        <realLights>
+            <high>
+                <light node="backLightsHigh" lightTypes="0"/>
+                <turnLightLeft node="turnLightLeftBack"/>
+                <turnLightRight node="turnLightRightBack"/>
+                <brakeLight node="backLightsHigh"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <licensePlates>
+        <licensePlate node="licensePlateBack" position="BACK" preferedType="ELONGATED" placementArea="0.08 0.3 0.08 0.3"/>
+    </licensePlates>
+
+    <groundReferenceNodes>
+        <groundReferenceNode node="groundReferenceNode"  forceFactor="1" threshold="0.2" depthNode="depthNode"/>
+        <groundReferenceNode node="ridgeMarkerLeftNode"  forceFactor="0" threshold="0.1" depthNode="ridgeMarkerLeftNode"/>
+        <groundReferenceNode node="ridgeMarkerRightNode" forceFactor="0" threshold="0.1" depthNode="ridgeMarkerRightNode"/>		
+		<groundReferenceNode node="TrackGroundRefNode"  forceFactor="1" threshold="0.2" depthNode="TrackGroundRefNode"/>
+    </groundReferenceNodes>
+
+    <workAreas>
+        <workArea type="sowingMachine" functionName="processSowingMachineArea" needsSetIsTurnedOn="false" >
+            <area startNode="workAreaStart" widthNode="workAreaWidth" heightNode="workAreaHeight"/>
+            <groundReferenceNode index="1"/>
+            <onlyActiveWhenLowered value="true"/>
+        </workArea>
+        <workArea type="ridgemarker" functionName="processRidgeMarkerArea" disableBackwards="false" needsSetIsTurnedOn="false">
+            <ridgeMarkerArea node="ridgeMarkerLeftNode" size="0.1" testAreaOffset="0.75"/>
+            <groundReferenceNode index="2" />
+            <folding minLimit="0" maxLimit="0.03"/>
+            <onlyActiveWhenLowered value="false"/>
+        </workArea>
+        <workArea type="ridgemarker" functionName="processRidgeMarkerArea" disableBackwards="false" needsSetIsTurnedOn="false">
+            <ridgeMarkerArea node="ridgeMarkerRightNode" size="0.1" testAreaOffset="0.75"/>
+            <groundReferenceNode index="3" />
+            <folding minLimit="0" maxLimit="0.03"/>
+            <onlyActiveWhenLowered value="false"/>
+        </workArea>
+		<!--Plejespor start-->
+		<workArea type="cultivator" functionName="processCultivatorArea"  needsSetIsTurnedOn="false">
+            <area startNode="V_TrackAreaStart" widthNode="V_TrackAreaWidth" heightNode="V_TrackAreaHeight" />
+            <groundReferenceNode index="4" />
+        </workArea>
+        <workArea type="cultivator" functionName="processCultivatorArea"  needsSetIsTurnedOn="false">
+            <area startNode="H_TrackAreaStart" widthNode="H_TrackAreaWidth" heightNode="H_TrackAreaHeight" />
+            <groundReferenceNode index="4" />
+        </workArea>		
+    </workAreas>
+
+	<cultivator useDeepMode="false">
+        <directionNode node="TrackGroundRefNode" />
+        <onlyActiveWhenLowered value="false"/>
+    </cultivator>
+	
+	<workModes allowChangeOnLowered="true" allowChangeWhileTurnedOn="true">
+		<workMode name="$l10n_action_workMode_no_tracks">
+           <!-- <animation name="tramlines"  speed="-1" stopTime="0" repeatAfterUnfolding="true"/>-->
+			<!--<animation name="tramlines"  speed="-1" stopTime="0" repeatAfterUnfolding="true"/>-->
+            <!--<workAreas>
+                <workArea workAreaIndex="4"/>
+                <workArea workAreaIndex="5"/>
+            </workAreas>-->
+        </workMode>
+        <workMode name="$l10n_action_workMode_tracks" inputBindingName="WORKMODE_MIDDLE">
+            <!--<animation name="tramlines"  speed="1" stopTime="1" repeatAfterUnfolding="true"/>-->
+			<animation name="tramlines"/>
+            <workAreas>
+                <workArea workAreaIndex="4"/>
+                <workArea workAreaIndex="5"/>
+            </workAreas>
+        </workMode>
+	</workModes>
+	
+    <workParticles>
+        <effect workAreaIndex="2">
+            <effectNode effectClass="CultivatorMotionPathEffect" effectType="CULTIVATOR" linkNode="ridgeMarkerLeftDiscEffect">
+                <motionPathEffect textureFilename="$data/effects/cultivator/arrays/sharedRidgeMarkerLeftArray.dds" numRows="3" rowLength="18" minFade="0.07" />
+            </effectNode>
+        </effect>
+        <effect workAreaIndex="3">
+            <effectNode effectClass="CultivatorMotionPathEffect" effectType="CULTIVATOR" linkNode="ridgeMarkerRightDiscEffect">
+                <motionPathEffect textureFilename="$data/effects/cultivator/arrays/sharedRidgeMarkerRightArray.dds" numRows="3" rowLength="18" minFade="0.07" />
+            </effectNode>
+        </effect>
+
+        <effect workAreaIndex="1">
+            <effectNode effectClass="CultivatorMotionPathEffect" effectType="CULTIVATOR" linkNode="seederEffect01LinkNode">
+                <motionPathEffect textureFilename="$data/vehicles/lemken/solitair12/seederEffect01Array.dds" numRows="60" rowLength="18" minFade="0.07" density="1" shapeScale="0.5" maxShapeScale="1"/>
+            </effectNode>
+            <effectNode effectClass="CultivatorMotionPathEffect" effectType="CULTIVATOR" linkNode="seederEffect02LinkNode">
+                <motionPathEffect textureFilename="$data/vehicles/lemken/solitair12/seederEffect02Array.dds" numRows="60" rowLength="18" minFade="0.07" density="1" shapeScale="0.5" maxShapeScale="1"/>
+            </effectNode>
+            <effectNode effectClass="CultivatorMotionPathEffect" effectType="CULTIVATOR" linkNode="seederEffect03LinkNode">
+                <motionPathEffect textureFilename="$data/vehicles/lemken/solitair12/seederEffect03Array.dds" numRows="60" rowLength="18" minFade="0.07" density="1" shapeScale="0.5" maxShapeScale="1"/>
+            </effectNode>
+        </effect>
+
+        <particle>
+            <node node="smokeEmitter01" refNodeIndex="1" particleType="SOIL_SMOKE" emitCountScale="4"/>
+        </particle>
+    </workParticles>
+
+    <foldable>
+        <foldingConfigurations>
+            <foldingConfiguration>
+                <foldingParts startMoveDirection="1" foldMiddleAnimTime="0.0714" turnOnFoldMinLimit="0" turnOnFoldMaxLimit="0.0714" toggleCoverMinLimit="0" toggleCoverMaxLimit="0.65">
+                    <foldingPart animationName="folding" speedScale="1"/>
+                </foldingParts>
+            </foldingConfiguration>
+        </foldingConfigurations>
+    </foldable>
+
+    <animations>
+	<animation name="tramlines">
+            <part node="Tramlines"     startTime="0" endTime="1" startRot="20 0 0" endRot="0 0 0"/>
+        </animation>
+        <animation name="folding">
+            <!-- lowering -->
+            <part node="backPartJointFront"  startTime="0" endTime="1" startRot="3 0 0" endRot="16 0 0" />
+            <part node="backPartJointBack"   startTime="0" endTime="1" startRot="-3 0 0" endRot="-3 0 0" />
+            <part componentJointIndex="1"    startTime="0" endTime="1" startRotLimit="5 0 0" endRotLimit="0 0 0" startTransMinLimit="0 0 0" startTransMaxLimit="0 0.5 0" endTransLimit="0 0 0" />
+
+            <sound template="clackVar5"  startTime="0.01" direction="-1" volumeScale="0.9" pitchScale="0.9" />
+            <sound template="sheetImp02" startTime="0.01" direction="-1" volumeScale="1.9" pitchScale="0.7" />
+            <sound template="clackVar2"  startTime="0.1"  direction="-1" volumeScale="1.8" pitchScale="1" />
+            <sound template="clackVar2"  startTime="0.1"  direction="-1" volumeScale="1.8" pitchScale="1.5" />
+            <sound template="clackVar3"  startTime="0.1"  direction="-1" volumeScale="1.2" pitchScale="0.8" />
+            <sound template="clackVar1"  startTime="0.2"  direction="-1" volumeScale="0.7" pitchScale="0.7" />
+            <stopTimeNegSound template="clackVar1"                       volumeScale="1.5" pitchScale="1" />
+            <stopTimeNegSound template="clackVar2"                       volumeScale="1.5" pitchScale="1.4" />
+            <sound template="clackVar5" startTime="0.01"  direction="1"  volumeScale="1.2" pitchScale="0.8" />
+            <sound template="clackVar2" startTime="0.01"  direction="1"  volumeScale="1.2" pitchScale="0.8" />
+            <stopTimePosSound template="clackVar6"                       volumeScale="1"   pitchScale="0.8" />
+            <stopTimePosSound template="clackVar2"                       volumeScale="1.2" pitchScale="1.2" />
+            <stopTimePosSound template="clackVar3"                       volumeScale="1.2" pitchScale="0.8" />
+            <stopTimePosSound template="foldStartMed02"                  volumeScale="1.5" pitchScale="0.6" />
+
+            <!-- folding -->
+            <part node="backPartJointFront"      startTime="1"   endTime="6"    startRot="16 0 0" endRot="84.3 0 0" />
+            <part node="leftArm"                 startTime="6.5" endTime="13"   startRot="0 0 0" endRot="0 0 90" />
+            <part node="colArmLeft"              startTime="6.5" endTime="13"   startRot="0 0 0" endRot="0 0 90" />
+            <part node="rightArm"                startTime="6.0" endTime="12.5" startRot="0 0 0" endRot="0 0 -90" />
+            <part node="colArmRight"             startTime="6.0" endTime="12.5" startRot="0 0 0" endRot="0 0 -90" />
+            <part node="backPartJointBack"       startTime="13.1" endTime="14"  startRot="-3 0 0" endRot="0 0 0" />
+
+            <part node="leftMarkerRot"           startTime="6" endTime="8"  startRot="0 0 0" endRot="0 0 84" />
+            <part node="rightMarkerRot"          startTime="6" endTime="8"  startRot="0 0 0" endRot="0 0 -84" />
+
+            <sound template="hydraulicOpen01"    startTime="13"    endTime="13.99" volumeScale="1.3" pitchScale="0.7" fadeIn="0.1" fadeOut="0.1" />
+            <sound template="hydraulicOpen03"    startTime="6.4"   endTime="13" direction="-1"    volumeScale="1.0" pitchScale="1.3" fadeIn="0.2" fadeOut="0.1" />
+            <sound template="hydraulicOpen03"    startTime="6"     endTime="12.6" direction="-1"  volumeScale="1.1" pitchScale="1.1" fadeIn="0.1" fadeOut="0.1" />
+            <sound template="hydraulicSmallOpen" startTime="6"     endTime="8"     volumeScale="0.8" pitchScale="0.9" fadeIn="0.1" fadeOut="0.1" />
+            <sound template="hydraulicOpen06"    startTime="0.01"  endTime="6" direction="-1"    volumeScale="0.7" pitchScale="0.6" fadeIn="0.1" fadeOut="0.1" />
+
+            <sound template="hydraulicClose01"   startTime="0.01"  endTime="6" direction="1"    volumeScale="1.8" pitchScale="1.2" fadeIn="0.1" fadeOut="0.1" />
+            <sound template="hydraulicOpen05"    startTime="0.01"  endTime="6" direction="1"    volumeScale="1.0" pitchScale="0.8" fadeIn="0.1" fadeOut="0.1" />
+            <sound template="hydraulicClose02"   startTime="6.4"   endTime="13" direction="1"    volumeScale="2.2" pitchScale="1.3" fadeIn="0.2" fadeOut="0.1" />
+            <sound template="hydraulicClose02"   startTime="6"     endTime="12.6" direction="1"  volumeScale="2.2" pitchScale="1.1" fadeIn="0.1" fadeOut="0.1" />
+
+
+            <sound template="clackVar5"             startTime="13.99" direction="-1"  volumeScale="1.2" pitchScale="0.8" />
+            <sound template="clackVar1"             startTime="13.99" direction="-1"  volumeScale="1.2" pitchScale="0.8" />
+            <sound template="sheetImp02"            startTime="13.99" direction="-1"  volumeScale="2.1" pitchScale="0.6" />
+            <sound template="clackVar5"             startTime="13"    direction="-1"  volumeScale="1"   pitchScale="1" />
+            <sound template="foldStartMed02"        startTime="13"    direction="-1"  volumeScale="2"   pitchScale="0.7" />
+            <sound template="clackVar3"             startTime="13"    direction="-1"  volumeScale="1"   pitchScale="0.7" />
+            <sound template="clackVar2"             startTime="13"    direction="-1"  volumeScale="1"   pitchScale="0.7" />
+            <sound template="metalOpen"             startTime="13"    direction="-1"  volumeScale="1.5" pitchScale="0.7" />
+            <sound template="clackVar1"             startTime="12.6"  direction="-1"  volumeScale="1"   pitchScale="0.6" />
+            <sound template="clackVar5"             startTime="12.6"  direction="-1"  volumeScale="1"   pitchScale="0.7" />
+            <sound template="clackVar2"             startTime="12.6"  direction="-1"  volumeScale="1"   pitchScale="0.9" />
+            <sound template="clackVar5"             startTime="8"     direction="-1"  volumeScale="0.5" pitchScale="1.2" />
+            <sound template="clackVar5"             startTime="8"     direction="1"   volumeScale="0.7" pitchScale="0.8" />
+            <sound template="clackVar5"             startTime="6.4"   direction="-1"  volumeScale="1.2" pitchScale="0.6" />
+            <sound template="clackVar1"             startTime="6.4"   direction="-1"  volumeScale="1.2" pitchScale="0.9" />
+            <sound template="clackVar2"             startTime="6.4"   direction="-1"  volumeScale="1.2" pitchScale="0.8" />
+            <sound template="sheetImp01"            startTime="6.4"   direction="-1"  volumeScale="1.5" pitchScale="0.5" />
+            <sound template="clackVar5"             startTime="6"     direction="-1"  volumeScale="1.2" pitchScale="0.8" />
+            <sound template="clackVar3"             startTime="6"     direction="-1"  volumeScale="1.2" pitchScale="0.8" />
+            <sound template="clackVar2"             startTime="6"     direction="-1"  volumeScale="1.2" pitchScale="0.6" />
+            <sound template="sheetImp05"            startTime="6"     direction="-1"  volumeScale="1.5" pitchScale="0.6" />
+            <stopTimeNegSound template="clackVar3"                                    volumeScale="1.2" pitchScale="0.6" />
+            <stopTimeNegSound template="clackVar2"                                    volumeScale="1.2" pitchScale="0.8" />
+            <stopTimeNegSound template="clackVar1"                                    volumeScale="1.2" pitchScale="0.8" />
+            <stopTimeNegSound template="sheetImp01"                                   volumeScale="1.7" pitchScale="0.5" />
+            <sound template="clackVar5"             startTime="6"     direction="1"   volumeScale="0.9" pitchScale="0.9" />
+            <sound template="clackVar2"             startTime="6"     direction="1"   volumeScale="0.9" pitchScale="0.9" />
+            <sound template="sheetImp02"            startTime="6"     direction="1"   volumeScale="2.9" pitchScale="0.8" />
+            <sound template="sheetImp05"            startTime="6"     direction="1"   volumeScale="1.6" pitchScale="0.8" />
+            <sound template="clackVar1"             startTime="6.4"   direction="1"   volumeScale="1.2" pitchScale="0.9" />
+            <sound template="clackVar3"             startTime="6.4"   direction="1"   volumeScale="1.2" pitchScale="0.7" />
+            <sound template="clackVar2"             startTime="6.4"   direction="1"   volumeScale="1.2" pitchScale="0.7" />
+            <sound template="sheetImp02"            startTime="6.4"   direction="1"   volumeScale="1.4" pitchScale="0.7" />
+            <sound template="clackVar2"             startTime="12.6"  direction="1"   volumeScale="1.2" pitchScale="0.6" />
+            <sound template="clackVar1"             startTime="12.4"  direction="1"   volumeScale="1.2" pitchScale="0.7" />
+            <sound template="sheetImp02"            startTime="12.4"  direction="1"   volumeScale="2.4" pitchScale="0.7" />
+            <sound template="clackVar3"             startTime="12.6"  direction="1"   volumeScale="1.2" pitchScale="1" />
+            <sound template="sheetImp01"            startTime="13"    direction="1"   volumeScale="1.9" pitchScale="0.5" />
+            <sound template="clackVar3"             startTime="13"    direction="1"   volumeScale="1.2" pitchScale="0.9" />
+            <sound template="clackVar5"             startTime="13"    direction="1"   volumeScale="1.2" pitchScale="0.9" />
+            <sound template="clackVar5"             startTime="13.99" direction="1"   volumeScale="1.2" pitchScale="0.9" />
+            <sound template="sheetImp02"            startTime="13.99" direction="1"   volumeScale="1.8" pitchScale="0.8" />
+            <sound template="foldStartMed02"        startTime="13.99" direction="1"   volumeScale="2"   pitchScale="0.8" />
+            <sound template="clackVar1"             startTime="13.8"  direction="1"   volumeScale="1.2" pitchScale="0.7" />
+            <sound template="clackVar2"             startTime="13.9"  direction="1"   volumeScale="1.2" pitchScale="0.6" />
+
+
+        </animation>
+        <animation name="rightArm">
+            <part node="rightMarkerArm"             startTime="0" endTime="2.0" startRot="0 0 -90" endRot="0 0 -1"/>
+            <part node="rightMarkerArm2"            startTime="0" endTime="2.0" startRot="0 0 165.1" endRot="0 0 0"/>
+            <part node="rightMarkerRotationBarPart" startTime="0" endTime="2.0" startRot="0 0 -40" endRot="0 0 0"/>
+
+            <sound template="hydraulicSoftOpen02"   startTime="0.01" endTime="1.99" volumeScale="0.9" pitchScale="1.6" fadeIn="0.01" fadeOut="0.01"/>
+            <sound template="clackVar5"             startTime="0.01" direction="1"  volumeScale="1.2" pitchScale="1.3" />
+            <sound template="clackVar3"             startTime="1.99" direction="1"  volumeScale="0.3" pitchScale="2" />
+            <sound template="clackVar5"             startTime="1.99" direction="1"  volumeScale="0.5" pitchScale="2.2" />
+            <sound template="clackVar2"             startTime="1.99" direction="1"  volumeScale="0.5" pitchScale="1.7" />
+            <sound template="clackVar2"             startTime="1.99" direction="-1" volumeScale="1.2" pitchScale="1.7" />
+            <sound template="clackVar1"             startTime="1.99" direction="-1" volumeScale="1.2" pitchScale="1.7" />
+            <sound template="clackVar5"             startTime="0.01" direction="-1" volumeScale="1.2" pitchScale="1" />
+            <sound template="clackVar3"             startTime="0.01" direction="-1" volumeScale="1.2" pitchScale="1" />
+        </animation>
+        <animation name="leftArm">
+            <part node="leftMarkerArm"              startTime="0" endTime="2.0" startRot="0 0 90" endRot="0 0 1"/>
+            <part node="leftMarkerArm2"             startTime="0" endTime="2.0" startRot="0 0 -165.1" endRot="0 0 0"/>
+            <part node="leftMarkerRotationBarPart"  startTime="0" endTime="2.0" startRot="0 0 40" endRot="0 0 0"/>
+
+            <sound template="hydraulicSoftOpen02" startTime="0.01" endTime="1.99" volumeScale="0.8" pitchScale="1.8" fadeIn="0.01" fadeOut="0.01"/>
+            <sound template="clackVar5"             startTime="0.01" direction="1"  volumeScale="1.2" pitchScale="1.3" />
+            <sound template="clackVar3"             startTime="1.99" direction="1"  volumeScale="0.3" pitchScale="2" />
+            <sound template="clackVar5"             startTime="1.99" direction="1"  volumeScale="0.5" pitchScale="2.2" />
+            <sound template="clackVar2"             startTime="1.99" direction="1"  volumeScale="0.5" pitchScale="1.7" />
+            <sound template="clackVar2"             startTime="1.99" direction="-1" volumeScale="1.2" pitchScale="1.7" />
+            <sound template="clackVar1"             startTime="1.99" direction="-1" volumeScale="1.2" pitchScale="1.7" />
+            <sound template="clackVar5"             startTime="0.01" direction="-1" volumeScale="1.2" pitchScale="1.2" />
+            <sound template="clackVar3"             startTime="0.01" direction="-1" volumeScale="1.2" pitchScale="1.3" />
+        </animation>
+        <animation name="moveSupport">
+            <part node="supportArm"                 startTime="0" endTime="0.5" startTrans="0.122 0.45 2.568" endTrans="0.122 0.01 2.568"/>
+
+            <sound template="clackVar5"  startTime="0.09" direction="-1" volumeScale="0.9" pitchScale="1.6" linkNode="attacherJoint"/>
+            <sound template="latchSmall" startTime="0.09" direction="-1" volumeScale="0.1" pitchScale="1.6" linkNode="attacherJoint"/>
+            <sound template="clackVar1"  startTime="0.4"  direction="1"  volumeScale="1.2" pitchScale="1.6" linkNode="attacherJoint"/>
+        </animation>
+        <animation name="toggleCover">
+            <part node="cover"                      startTime="0" endTime="1.5" startRot="0 0 0" endRot="0 0 90"/>
+
+            <sound template="hingeSmall" startTime="0.2"  direction="1"  volumeScale="0.3" pitchScale="1" />
+            <sound template="hingeSmall" startTime="1.49" direction="-1" volumeScale="0.3" pitchScale="0.7" />
+            <sound template="clackVar6"  startTime="0.01" direction="1"  volumeScale="0.2" pitchScale="2" />
+            <sound template="clackVar5"  startTime="0.01" direction="1"  volumeScale="0.1" pitchScale="3" />
+            <sound template="clackVar4"  startTime="1.49" direction="1"  volumeScale="0.8" pitchScale="1" />
+            <sound template="sheetImp02" startTime="0.01" direction="-1" volumeScale="1.5" pitchScale="1.7" />
+            <sound template="vibratingImp" startTime="0.01" direction="-1" volumeScale="0.8" pitchScale="1.5" />
+            <sound template="cylinderPunch" startTime="0.01" direction="-1" volumeScale="0.3" pitchScale="1.8" />
+        </animation>
+    </animations>
+
+    <cylindered>
+        <movingTools>
+            <movingTool node="backPartJointFront" playSound="true">
+                <componentJoint index="1"/>
+            </movingTool>
+            <movingTool node="backPartJointBack" playSound="true">
+                <componentJoint index="1"/>
+            </movingTool>
+            <movingTool node="colArmLeft" wheelIndices="5"/>
+            <movingTool node="colArmRight" wheelIndices="6"/>
+            <movingTool node="leftArm" playSound="true">
+                <dependentPart node="hydraulicLeftArm"/>
+            </movingTool>
+            <movingTool node="rightArm" playSound="true">
+                <dependentPart node="hydraulicRightArm"/>
+            </movingTool>
+            <movingTool node="leftMarkerRot">
+                <dependentPart node="hydraulicLeftMarker"/>
+            </movingTool>
+            <movingTool node="rightMarkerRot">
+                <dependentPart node="hydraulicRightMarker"/>
+            </movingTool>
+            <movingTool node="leftMarkerArm">
+                <dependentPart node="rotationBarLeftArm"/>
+                <dependentPart node="hydraulicLeftMarkerSmall"/>
+            </movingTool>
+            <movingTool node="rightMarkerArm">
+                <dependentPart node="rotationBarRightArm"/>
+                <dependentPart node="hydraulicRightMarkerSmall"/>
+            </movingTool>
+        </movingTools>
+
+        <movingParts>
+            <movingPart node="backArm" referencePoint="referencePoint" referenceFrame="referencePoint" isActiveDirty="true" maxUpdateDistance="-">
+                <dependentPart node="mainArm"/>
+                <dependentPart node="hydraulicArmBottom"/>
+                <dependentPart node="hydraulicTopArm"/>
+            </movingPart>
+            <movingPart node="mainArm" referenceFrame="referencePoint"/>
+            <movingPart node="hydraulicArmBottom" referencePoint="hydraulicArmBottomRef" referenceFrame="hydraulicArmBottomRef">
+                <translatingPart node="hydraulicArmBottomPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicTopArm" referencePoint="hydraulicTopArmRef" referenceFrame="hydraulicTopArmRef">
+                <translatingPart node="hydraulicTopArmPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicLeftArm" referencePoint="hydraulicLeftArmRef" referenceFrame="hydraulicLeftArmRef" playSound="true">
+                <translatingPart node="hydraulicLeftArmPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicRightArm" referencePoint="hydraulicRightArmRef" referenceFrame="hydraulicRightArmRef" playSound="true">
+                <translatingPart node="hydraulicRightArmPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicLeftMarker" referencePoint="hydraulicLeftMarkerRef" referenceFrame="leftArm" playSound="true">
+                <translatingPart node="hydraulicLeftMarkerPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicRightMarker" referencePoint="hydraulicRightMarkerRef" referenceFrame="rightArm" playSound="true">
+                <translatingPart node="hydraulicRightMarkerPunch"/>
+            </movingPart>
+            <movingPart node="hydraulicLeftMarkerSmall" referencePoint="hydraulicLeftMarker2" referenceFrame="leftMarkerArm" playSound="true">
+                <translatingPart node="hydraulicLeftMarker2SmallPunch"/>
+            </movingPart>
+            <movingPart node="rotationBarLeftArm" referencePoint="leftMarkerRotationBarRef" referenceFrame="leftMarkerArm" playSound="true"/>
+            <movingPart node="hydraulicRightMarkerSmall" referencePoint="hydraulicRightMarker2Ref" referenceFrame="rightMarkerArm" playSound="true">
+                <translatingPart node="hydraulicRightMarkerSmallPunch"/>
+            </movingPart>
+            <movingPart node="rotationBarRightArm" referencePoint="rightMarkerRotationBarRef" referenceFrame="rightMarkerArm" playSound="true"/>
+        </movingParts>
+    </cylindered>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <unloading width="12" offset="0 0 -4" />
+                    <fillUnit unitTextOverride="$l10n_unit_literShort" fillTypes="seeds" capacity="5800">
+                        <exactFillRootNode node="exactFillRootNode" extraEffectDistance="0.6"/>
+                        <fillRootNode node="solitair12_main_component1"/>
+                        <fillMassNode node="solitair12_main_component1"/>
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" maxDelta="0.0" fillUnitIndex="1"/>
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+        <unloadInfos>
+            <unloadInfo>
+                <node node="undloadNode" width="1.4" length="0.1"/>
+            </unloadInfo>
+        </unloadInfos>
+        <loadInfos>
+            <loadInfo>
+                <node node="loadNode" width="1.4" length="0.1"/>
+            </loadInfo>
+        </loadInfos>
+    </fillVolume>
+
+    <sowingMachine fillUnitIndex="1">
+        <seedFruitTypeCategories>sowingMachine</seedFruitTypeCategories>
+        <needsActivation value="true"/>
+        <fieldGroundType value="SOWN"/>
+
+        <animationNodes>
+            <animationNode node="bigFanRot" rotSpeed="1300" rotAxis="1" turnOnFadeTime="3" turnOffFadeTime="5" />
+        </animationNodes>
+        <sounds>
+            <work template="defaultSowingWork" linkNode="solitair12_main_component1" />
+            <airBlower template="defaultSowingAirBlower" linkNode="solitair12_main_component1" />
+        </sounds>
+    </sowingMachine>
+
+    <ridgeMarker onlyActiveWhenLowered="true" foldMinLimit="0.0" foldMaxLimit="0.0714">
+        <marker animName="leftArm" workAreaIndex="2"/>
+        <marker animName="rightArm" workAreaIndex="3"/>
+    </ridgeMarker>
+
+    <cover>
+        <coverConfigurations>
+            <coverConfiguration closeCoverIfNotAllowed="true">
+                <cover openAnimation="toggleCover" openOnBuy="false" fillUnitIndices="1" blockedToolTypes="dischargeable"/>
+            </coverConfiguration>
+        </coverConfigurations>
+    </cover>
+
+    <turnOnVehicle turnOffIfNotAllowed="true"/>
+
+    <ai>
+        <needsLowering value="true"/>
+        <areaMarkers leftNode="aiMarkerLeft" rightNode="aiMarkerRight" backNode="aiMarkerBack"/>
+        <sizeMarkers leftNode="sizeMarkerLeft" rightNode="sizeMarkerRight" backNode="sizeMarkerBack"/>
+        <collisionTrigger node="aiCollisionNode" width="12.0" height="2.7"/>
+        <allowTurnBackward value="false"/>
+        <turningRadiusLimitation rotationJointNode="attacherJoint" wheelIndices="1 2"/>
+        <toolReverserDirectionNode node="sizeMarkerBack"/>
+        <agentAttachment jointNode="attacherJoint" rotCenterWheelIndices="1 2" width="3" height="3.85" length="6.2" lengthOffset="1.2"/>
+    </ai>
+
+    <foliageBending>
+        <bendingNode wheelIndices="1 2" minZ="-2.1" maxZ="1.4" yOffset="0.55"/>
+        <bendingNode minX="-0.81" maxX="5.2" minZ="-1.3" maxZ="0.2" yOffset="-0.35" node="leftArm"/>
+        <bendingNode minX="-5.2" maxX="0.81" minZ="-1.3" maxZ="0.2" yOffset="-0.35" node="rightArm"/>
+        <bendingNode minX="-0.35" maxX="0.35" minZ="1.4" maxZ="3.25" yOffset="0.55"/>
+    </foliageBending>
+
+    <wearable wearDuration="480" workMultiplier="5" fieldMultiplier="2"/>
+    <washable dirtDuration="90" washDuration="1" workMultiplier="6" fieldMultiplier="2"/>
+
+    <i3dMappings>
+        <i3dMapping id="solitair12_main_component1" node="0>" />
+        <i3dMapping id="solitair12" node="0>0" />
+        <i3dMapping id="wheelLeft" node="0>0|0|0" />
+        <i3dMapping id="wheelRight" node="0>0|0|1" />
+        <i3dMapping id="attacherJoint" node="0>0|1|0" />
+        <i3dMapping id="attacherJointLow" node="0>0|1|1" />
+        <i3dMapping id="attacherJoint_vis" node="0>0|1|2" />
+        <i3dMapping id="supportArm" node="0>0|1|3|0" />
+        <i3dMapping id="electricOut_detached" node="0>0|1|4|0" />
+        <i3dMapping id="electricOut_detachedAdapter" node="0>0|1|4|0|0" />
+        <i3dMapping id="hydraulicIn01_detached" node="0>0|1|4|1" />
+        <i3dMapping id="hydraulicIn01_detachedAdapter" node="0>0|1|4|1|0" />
+        <i3dMapping id="hydraulicOut01_detached" node="0>0|1|4|2" />
+        <i3dMapping id="hydraulicOut01_detachedAdapter" node="0>0|1|4|2|0" />
+        <i3dMapping id="hydraulicIn02_detached" node="0>0|1|4|3" />
+        <i3dMapping id="hydraulicIn02_detachedAdapter" node="0>0|1|4|3|0" />
+        <i3dMapping id="hydraulicOut02_detached" node="0>0|1|4|4" />
+        <i3dMapping id="hydraulicOut02_detachedAdapter" node="0>0|1|4|4|0" />
+        <i3dMapping id="hydraulicIn02" node="0>0|1|4|5" />
+        <i3dMapping id="hydraulicOut02" node="0>0|1|4|6" />
+        <i3dMapping id="hydraulicIn01" node="0>0|1|4|7" />
+        <i3dMapping id="hydraulicOut01" node="0>0|1|4|8" />
+        <i3dMapping id="electricOut" node="0>0|1|4|9" />
+        <i3dMapping id="yellowRound_03_1" node="0>0|2|0|0" />
+        <i3dMapping id="yellowRound_03_2" node="0>0|2|0|1" />
+        <i3dMapping id="yellowRound_03_3" node="0>0|2|0|2" />
+        <i3dMapping id="yellowRound_03_4" node="0>0|2|0|3" />
+        <i3dMapping id="yellowRound_03_5" node="0>0|2|0|4" />
+        <i3dMapping id="yellowRound_03_6" node="0>0|2|0|5" />
+        <i3dMapping id="frontLightCone_01_1" node="0>0|2|0|6" />
+        <i3dMapping id="frontLightCone_01_2" node="0>0|2|0|7" />
+        <i3dMapping id="redTriangle_02_1" node="0>0|2|0|8" />
+        <i3dMapping id="redTriangle_02_2" node="0>0|2|0|9" />
+        <i3dMapping id="rear2ChamberLight_03_left" node="0>0|2|0|10" />
+        <i3dMapping id="rear2ChamberLight_03_right" node="0>0|2|0|11" />
+        <i3dMapping id="backLightsHigh" node="0>0|2|1|0" />
+        <i3dMapping id="turnLightLeftBack" node="0>0|2|2|0" />
+        <i3dMapping id="turnLightRightBack" node="0>0|2|2|1" />
+        <i3dMapping id="backArm" node="0>0|3|0" />
+        <i3dMapping id="mainArm" node="0>0|3|0|0" />
+        <i3dMapping id="hydraulicTopArmRef" node="0>0|3|0|0|0" />
+        <i3dMapping id="leftArm" node="0>0|3|0|0|1" />
+        <i3dMapping id="hydraulicLeftArmRef" node="0>0|3|0|0|1|0" />
+        <i3dMapping id="leftArmWheelsFront" node="0>0|3|0|0|1|1|0" />
+        <i3dMapping id="leftArmWheelsBack" node="0>0|3|0|0|1|1|1" />
+        <i3dMapping id="leftArmFirstRowDiscs" node="0>0|3|0|0|1|1|2" />
+        <i3dMapping id="leftMarkerRot" node="0>0|3|0|0|1|2" />
+        <i3dMapping id="hydraulicLeftMarkerRef" node="0>0|3|0|0|1|2|0" />
+        <i3dMapping id="leftMarkerArm" node="0>0|3|0|0|1|2|1" />
+        <i3dMapping id="hydraulicLeftMarker2" node="0>0|3|0|0|1|2|1|0" />
+        <i3dMapping id="leftMarkerArm2" node="0>0|3|0|0|1|2|1|1" />
+        <i3dMapping id="leftMarkerRotationBarPart" node="0>0|3|0|0|1|2|1|1|0" />
+        <i3dMapping id="leftMarkerRotationBarRef" node="0>0|3|0|0|1|2|1|1|0|0" />
+        <i3dMapping id="ridgeMarkerLeftDisc" node="0>0|3|0|0|1|2|1|1|1|0" />
+        <i3dMapping id="ridgeMarkerLeftNode" node="0>0|3|0|0|1|2|1|1|2" />
+        <i3dMapping id="ridgeMarkerLeftDiscEffect" node="0>0|3|0|0|1|2|1|1|3" />
+        <i3dMapping id="hydraulicLeftMarkerSmall" node="0>0|3|0|0|1|2|2" />
+        <i3dMapping id="hydraulicLeftMarker2SmallPunch" node="0>0|3|0|0|1|2|2|0" />
+        <i3dMapping id="rotationBarLeftArm" node="0>0|3|0|0|1|2|3" />
+        <i3dMapping id="hydraulicLeftMarker" node="0>0|3|0|0|1|3" />
+        <i3dMapping id="hydraulicLeftMarkerPunch" node="0>0|3|0|0|1|3|0" />
+        <i3dMapping id="rightArm" node="0>0|3|0|0|2" />
+        <i3dMapping id="hydraulicRightArmRef" node="0>0|3|0|0|2|0" />
+        <i3dMapping id="rightArmWheelsFront" node="0>0|3|0|0|2|1|0" />
+        <i3dMapping id="rightArmWheelsBack" node="0>0|3|0|0|2|1|1" />
+        <i3dMapping id="rightArmFirstRowDiscs" node="0>0|3|0|0|2|1|2" />
+        <i3dMapping id="rightMarkerRot" node="0>0|3|0|0|2|2" />
+        <i3dMapping id="hydraulicRightMarkerRef" node="0>0|3|0|0|2|2|0" />
+        <i3dMapping id="rightMarkerArm" node="0>0|3|0|0|2|2|1" />
+        <i3dMapping id="hydraulicRightMarker2Ref" node="0>0|3|0|0|2|2|1|0" />
+        <i3dMapping id="rightMarkerArm2" node="0>0|3|0|0|2|2|1|1" />
+        <i3dMapping id="rightMarkerRotationBarPart" node="0>0|3|0|0|2|2|1|1|0" />
+        <i3dMapping id="rightMarkerRotationBarRef" node="0>0|3|0|0|2|2|1|1|0|0" />
+        <i3dMapping id="discRotRight" node="0>0|3|0|0|2|2|1|1|1" />
+        <i3dMapping id="ridgeMarkerRightDisc" node="0>0|3|0|0|2|2|1|1|1|0" />
+        <i3dMapping id="ridgeMarkerRightNode" node="0>0|3|0|0|2|2|1|1|2" />
+        <i3dMapping id="ridgeMarkerRightDiscEffect" node="0>0|3|0|0|2|2|1|1|3" />
+        <i3dMapping id="hydraulicRightMarkerSmall" node="0>0|3|0|0|2|2|2" />
+        <i3dMapping id="hydraulicRightMarkerSmallPunch" node="0>0|3|0|0|2|2|2|0" />
+        <i3dMapping id="rotationBarRightArm" node="0>0|3|0|0|2|2|3" />
+        <i3dMapping id="hydraulicRightMarker" node="0>0|3|0|0|2|3" />
+        <i3dMapping id="hydraulicRightMarkerPunch" node="0>0|3|0|0|2|3|0" />
+        <i3dMapping id="hydraulicLeftArm" node="0>0|3|0|0|3" />
+        <i3dMapping id="hydraulicLeftArmPunch" node="0>0|3|0|0|3|0" />
+        <i3dMapping id="hydraulicRightArm" node="0>0|3|0|0|4" />
+        <i3dMapping id="hydraulicRightArmPunch" node="0>0|3|0|0|4|0" />
+        <i3dMapping id="workAreaStart" node="0>0|3|0|0|5|0" />
+        <i3dMapping id="workAreaWidth" node="0>0|3|0|0|5|1" />
+        <i3dMapping id="workAreaHeight" node="0>0|3|0|0|5|2" />
+        <i3dMapping id="aiMarkerLeft" node="0>0|3|0|0|6|0|0" />
+        <i3dMapping id="aiMarkerRight" node="0>0|3|0|0|6|0|1" />
+        <i3dMapping id="aiMarkerBack" node="0>0|3|0|0|6|0|2" />
+        <i3dMapping id="sizeMarkerLeft" node="0>0|3|0|0|6|1|0" />
+        <i3dMapping id="sizeMarkerRight" node="0>0|3|0|0|6|1|1" />
+        <i3dMapping id="sizeMarkerBack" node="0>0|3|0|0|6|1|2" />
+        <i3dMapping id="aiCollisionNode" node="0>0|3|0|0|6|2" />
+        <i3dMapping id="seederEffect01LinkNode" node="0>0|3|0|0|7|0" />
+        <i3dMapping id="seederEffect02LinkNode" node="0>0|3|0|0|7|1" />
+        <i3dMapping id="seederEffect03LinkNode" node="0>0|3|0|0|7|2" />
+        <i3dMapping id="depthNode" node="0>0|3|0|0|7|3" />
+        <i3dMapping id="smokeEmitter01" node="0>0|3|0|0|7|4" />
+        <i3dMapping id="licensePlateBack" node="0>0|3|0|0|9" />
+        <i3dMapping id="hydraulicArmBottomRef" node="0>0|3|0|1" />
+        <i3dMapping id="hydraulicTopArm" node="0>0|3|0|2" />
+        <i3dMapping id="hydraulicTopArmPunch" node="0>0|3|0|2|0" />
+        <i3dMapping id="cover" node="0>0|3|1" />
+        <i3dMapping id="wheelChockFrontLeft" node="0>0|3|2|0" />
+        <i3dMapping id="wheelChockFrontRight" node="0>0|3|2|1" />
+        <i3dMapping id="bigFanRot" node="0>0|3|3" />
+        <i3dMapping id="hydraulicArmBottom" node="0>0|4|0" />
+        <i3dMapping id="hydraulicArmBottomPunch" node="0>0|4|0|0" />
+        <i3dMapping id="backPartJointFront" node="0>0|5" />
+        <i3dMapping id="backPartJointBack" node="0>0|5|0" />
+        <i3dMapping id="fillVolume" node="0>0|6|0" />
+        <i3dMapping id="loadNode" node="0>0|6|1" />
+        <i3dMapping id="undloadNode" node="0>0|6|2" />
+        <i3dMapping id="exactFillRootNode" node="0>0|6|3" />
+        <i3dMapping id="wheelLeftBack" node="1>0" />
+        <i3dMapping id="wheelRightBack" node="1>1" />
+        <i3dMapping id="colArmLeft" node="1>2" />
+        <i3dMapping id="wheelOuterLeftBack" node="1>2|0" />
+        <i3dMapping id="colArmRight" node="1>3" />
+        <i3dMapping id="wheelOuterRightBack" node="1>3|0" />
+        <i3dMapping id="referencePoint" node="1>4" />
+        <i3dMapping id="groundReferenceNode" node="1>5" />
+		
+		<i3dMapping id="Tramlines" node="0>0|3|0|0|11" />
+<i3dMapping id="V_TrackAreaStart" node="0>0|3|0|0|11|0|0" />
+<i3dMapping id="V_TrackAreaWidth" node="0>0|3|0|0|11|0|1" />
+<i3dMapping id="V_TrackAreaHeight" node="0>0|3|0|0|11|0|2" />
+<i3dMapping id="H_TrackAreaStart" node="0>0|3|0|0|11|1|0" />
+<i3dMapping id="H_TrackAreaWidth" node="0>0|3|0|0|11|1|1" />
+<i3dMapping id="H_TrackAreaHeight" node="0>0|3|0|0|11|1|2" />
+<i3dMapping id="TrackGroundRefNode" node="0>0|3|0|0|11|2" />
+    </i3dMappings>
+</vehicle>

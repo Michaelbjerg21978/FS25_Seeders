@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<vehicle type="fertilizingSowingMachine" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
+<vehicle type="fertilizingSowingMachineExtended" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/vehicle.xsd">
     <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
 
     <storeData>
@@ -11,6 +11,7 @@
         </specs>
         <functions>
             <function>$l10n_function_planter</function>
+			<function>$l10n_function_sowingMachineExtended</function>
         </functions>
         <image>$data/vehicles/horsch/maestro2450SV/store_maestro2450SV.png</image>
         <price>208000</price>
@@ -31,7 +32,7 @@
 
     <base>
         <typeDesc>$l10n_typeDesc_sowingMachine</typeDesc>
-        <filename>$data/vehicles/horsch/maestro2450SV/maestro2450SV.i3d</filename>
+        <filename>i3d/maestro2450SV.i3d</filename>
         <size width="3.3" length="7.8" height="4.05" lengthOffset="0.8"/>
         <speedLimit value="12"/>
         <components maxMass="22000">
@@ -350,6 +351,7 @@
 
     <groundReferenceNodes>
         <groundReferenceNode node="groundReferenceNode" forceFactor="1" threshold="0.25"/>
+		<groundReferenceNode node="TrackGroundRefNode"  forceFactor="1" threshold="0.2" depthNode="TrackGroundRefNode"/>
     </groundReferenceNodes>
 
     <workAreas>
@@ -358,8 +360,34 @@
             <groundReferenceNode index="1" />
             <onlyActiveWhenLowered value="true"/>
         </workArea>
+		<!--Plejespor start-->
+		<workArea type="cultivator" functionName="processCultivatorArea"  needsSetIsTurnedOn="false">
+            <area startNode="V_TrackAreaStart" widthNode="V_TrackAreaWidth" heightNode="V_TrackAreaHeight" />
+            <groundReferenceNode index="2" />
+        </workArea>
+        <workArea type="cultivator" functionName="processCultivatorArea"  needsSetIsTurnedOn="false">
+            <area startNode="H_TrackAreaStart" widthNode="H_TrackAreaWidth" heightNode="H_TrackAreaHeight" />
+            <groundReferenceNode index="2" />
+        </workArea>	
     </workAreas>
 
+	<cultivator useDeepMode="false">
+        <directionNode node="TrackGroundRefNode" />
+        <onlyActiveWhenLowered value="false"/>
+    </cultivator>
+	
+	<workModes allowChangeOnLowered="true" allowChangeWhileTurnedOn="true">
+		<workMode name="$l10n_action_workMode_no_tracks">
+        </workMode>
+        <workMode name="$l10n_action_workMode_tracks" inputBindingName="WORKMODE_MIDDLE">
+			<animation name="tramlines"/>
+            <workAreas>
+                <workArea workAreaIndex="2"/>
+                <workArea workAreaIndex="3"/>
+            </workAreas>
+        </workMode>
+	</workModes>
+	
     <workParticles>
         <effect workAreaIndex="1">
             <effectNode effectClass="CultivatorMotionPathEffect" effectType="CULTIVATOR" linkNode="seederEffectLeft01LinkNode">
@@ -409,6 +437,9 @@
     </foldable>
 
     <animations>
+		<animation name="tramlines">
+            <part node="Tramlines"     startTime="0" endTime="1" startRot="20 0 0" endRot="0 0 0"/>
+        </animation>
         <animation name="moveSupport">
             <part node="supportArmHandle" startTime="0.0" endTime="0.1" startRot="0 -90 0" endRot="0 0 0" />
             <part node="supportArmRod"    startTime="0.1" endTime="0.7" startRot="0 0 0"  endRot="0 0 720" />
@@ -1613,6 +1644,14 @@
         <i3dMapping id="componentJointArmLeft" node="0>0|3|0|0" />
         <i3dMapping id="componentJointArmRight" node="0>0|3|0|1" />
         <i3dMapping id="groundReferenceNode" node="0>0|3|0|2" />
+		<i3dMapping id="Tramlines" node="0>0|3|0|4" />
+		<i3dMapping id="V_TrackAreaStart" node="0>0|3|0|4|0|0" />
+		<i3dMapping id="V_TrackAreaWidth" node="0>0|3|0|4|0|1" />
+		<i3dMapping id="V_TrackAreaHeight" node="0>0|3|0|4|0|2" />
+		<i3dMapping id="H_TrackAreaStart" node="0>0|3|0|4|1|0" />
+		<i3dMapping id="H_TrackAreaWidth" node="0>0|3|0|4|1|1" />
+		<i3dMapping id="H_TrackAreaHeight" node="0>0|3|0|4|1|2" />
+		<i3dMapping id="TrackGroundRefNode" node="0>0|3|0|4|2" />
         <i3dMapping id="armMiddleRefFrame" node="0>0|3|1" />
         <i3dMapping id="armMiddle" node="0>0|3|2|0" />
         <i3dMapping id="armLeftRefFrame" node="0>0|3|2|0|0" />

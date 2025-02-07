@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="94">
     <author>Michaelbjerg21978</author>
-    <version>0.0.0.6</version>
+    <version>0.0.0.9</version>
 	
     <title>
         <en>Seeders Pack</en>
@@ -26,11 +26,26 @@ Med gødningsvalg.
     <iconFilename>icon.png</iconFilename>
     <multiplayer supported="true" />
 
+	<vehicleTypes>
+        <type name="SowingMachineExtended" parent="sowingMachine" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+            <specialization name="cultivator" />
+            <specialization name="workMode" />
+        </type>
+		<type name="fertilizingSowingMachineExtended" parent="fertilizingSowingMachine" className="Vehicle" filename="$dataS/scripts/vehicles/Vehicle.lua">
+            <specialization name="cultivator" />
+            <specialization name="workMode" />
+        </type>
+    </vehicleTypes>
+	
 	<l10n>
-        <text name="configuration_fertilizerTank"><en>FertilizerTank</en><de>Hauptfarbe</de><da>GødningsTank</da></text>
+        <text name="configuration_fertilizerTank"><en>FertilizerTank</en><de>Düngertank</de><da>GødningsTank</da></text>
+		<text name="action_workMode_tracks"><en>Tram Line on</en><de>Fahrgasse einschalten</de><da>Plejespor Til</da></text>
+        <text name="action_workMode_no_tracks"><en>Tram Line off</en><de>Fahrgasse ausschalten</de><da>Plejespor Fra</da></text>
+		<text name="function_sowingMachineExtended"><en>This seeder can also make tram lines.</en><de>Mit dieser Sämaschine können auch Fahrgasse machen.</de><da>Denne såmaskine kan også lave plejespor.</da></text>
     </l10n>
 
     <storeItems>
-		<storeItem xmlFilename="xml/maestro2450SV.xml"/>  
+		<storeItem xmlFilename="xml/maestro2450SV.xml"/> 
+		<storeItem xmlFilename="xml/solitair12.xml"/> 			
     </storeItems>
 </modDesc>
